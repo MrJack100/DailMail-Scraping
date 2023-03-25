@@ -1,5 +1,6 @@
 import requests, json
 from bs4 import BeautifulSoup
+from markdownify import markdownify as md
 
 def parse_main_articles(litem):
 	litem_soup = BeautifulSoup(litem, "html.parser")
@@ -246,4 +247,4 @@ class DailyMail:
 
 	def article(self, article):
 		'''Fetch an article identified by a URL in reading form, returned in a MARKDOWN format.'''
-		self.article = fetch_article(article)
+		self.articlecontent = fetch_article(article)
