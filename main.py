@@ -1,6 +1,8 @@
+# Current way to import DailyMail Scraper
 from dailymailclass import DailyMail
 
+# Creates class
 mail = DailyMail()
 
-with open("test.json", "w") as f:
-	f.write(mail.homepage)
+# Prints homepage
+print(mail.homepage)

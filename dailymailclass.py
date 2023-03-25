@@ -46,6 +46,8 @@ def parse_main_articles(litem):
 
 def main_request():
 	response = requests.get("https://www.dailymail.co.uk/home/index.html")
+
+	response.encoding = response.apparent_encoding
 	
 	main_soup = BeautifulSoup(response.text, "html.parser")
 
