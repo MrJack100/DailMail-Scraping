@@ -1,7 +1,7 @@
 import requests, json
 from bs4 import BeautifulSoup
 
-def search(searchterm):
+def search_request(searchterm):
 	url_safe_prompt = searchterm.replace(" ", "%20")
 	
 	url = ("https://www.dailymail.co.uk/home/search.html?sel=site&searchPhrase=" + url_safe_prompt)
@@ -43,27 +43,26 @@ def search(searchterm):
 	
 	return([links, headings, images])
 
-
-x = search("budget")
-
-links = x[0]
-headings = x[1]
-images = x[2]
-
-increment = 0
-
-final = []
-
-while True:
-	try:
-		y = []
-		y.append(links[increment])
-		y.append(headings[increment])
-		y.append(images[increment])
-		final.append(y)
-		increment += 1
-	except:
-		break
-
-with open("test.json", "w") as f:
-	f.write((json.dumps(final)))
+def search(searchterm):
+	x = search_request(searchterm)
+	
+	links = x[0]
+	headings = x[1]
+	images = x[2]
+	
+	increment = 0
+	
+	final = []
+	
+	while True:
+		try:
+			y = []
+			y.append(links[increment])
+			y.append(headings[increment])
+			y.append(images[increment])
+			final.append(y)
+			increment += 1
+		except:
+			break
+	
+	return(json.dumps(final))
