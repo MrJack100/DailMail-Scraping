@@ -1,4 +1,6 @@
 from dailymailclass import DailyMail
 
-x = DailyMail()
-print(x.homepage)
+mail = DailyMail()
+
+with open("test.json", "w") as f:
+	f.write(mail.homepage)
