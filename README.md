@@ -10,24 +10,34 @@ No current way to install.
 
 How to get homepage contents.
 
-    # Current way to import DailyMail Scraper
-    from dailymailclass import DailyMail
-    
-    # Creates class
-    mail = DailyMail()
-    
-    # Prints homepage
-    print(mail.homepage)
-    
+```python
+# Current way to import dailymail scraper
+from dailymailclass import DailyMail
+
+# Creates class
+mail = DailyMail()
+
+# Prints homepage articles
+print(mail.homepage)
+
+# Prints search results for "fire"
+mail.search("fire")
+print(mail.searchresult)
+
+# Prints content of "https://www.dailymail.co.uk/news/article-11858277/HS2-created-ghost-towns-Britain-homeowners-forced-beloved-properties.html"
+mail.article("https://www.dailymail.co.uk/news/article-11858277/HS2-created-ghost-towns-Britain-homeowners-forced-beloved-properties.html")
+print(mail.articlecontent)
+```
+   
 ## Future Changes
 
 - Add as a package to `PyPi`
-- Add all features
+- ~~Add all features~~ DONE
 - Improve `JSON` format to instead have dictionaries, for example:
 
 		[{"link":"https://example.com","heading":"HEADING HERE","image":"https://example.jpg"},{"link":"https://example.com","heading":"HEADING HERE","image":"https://example.jpg"}]
 		
-- Think of more functions to add
+- ~~Think of more functions to add~~ DONE
 
 ## About
 
