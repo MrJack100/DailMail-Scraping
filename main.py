@@ -3,4 +3,5 @@ from dailymailclass import DailyMail
 mail = DailyMail()
 
 with open("test.json", "w") as f:
-	f.write(mail.homepage)
+	mail.search("fire")
+	f.write(mail.searchresult)

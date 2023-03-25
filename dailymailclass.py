@@ -200,9 +200,20 @@ def fetch_search(searchterm):
 	return(json.dumps(final))
 
 class DailyMail:
-	'''Scrape data from the DailyMail and return in a JSON Format'''
+	'''Scrape data from the DailyMail and return in a JSON Format
+
+
+ 
+ Current Functions:
+
+ Fetch homepage:
+ mail.homepage
+ 
+ Search dailymail:
+ mail.search("prompt here")'''
 
 	homepage = fetch_homepage()
 
 	def search(self, query):
+		'''Search dailymail, accepts strings.'''
 		self.searchresult = fetch_search(query)
