@@ -267,6 +267,18 @@ MarkupSafe = ">=2.0"
 i18n = ["Babel (>=2.7)"]
 
 [[package]]
+name = "markdownify"
+version = "0.11.6"
+description = "Convert HTML to markdown."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+beautifulsoup4 = ">=4.9,<5"
+six = ">=1.15,<2"
+
+[[package]]
 name = "markupsafe"
 version = "2.1.2"
 description = "Safely add untrusted strings to HTML/XML markup."
@@ -517,6 +529,14 @@ dev = ["pytest (>=7.0.1)", "pytest-timeout (>=2.1.0)", "build (>=0.7.0)", "pre-c
 doc = ["pytoolconfig", "sphinx (>=4.5.0)", "sphinx-autodoc-typehints (>=1.18.1)", "sphinx-rtd-theme (>=1.0.0)"]
 
 [[package]]
+name = "six"
+version = "1.16.0"
+description = "Python 2 and 3 compatibility utilities"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
 name = "soupsieve"
 version = "2.4"
 description = "A modern CSS selector implementation for Beautiful Soup."
@@ -614,7 +634,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10.0,<3.11"
-content-hash = "b297aacfdbe80216950df061a83d434bd803bc7c0a664b8a18e7106032639fea"
+content-hash = "4261f8ff56ca93200de20265f029d1035983a443aa36ffb414799bd4edbcea7f"
 
 [metadata.files]
 aiohttp = []
@@ -639,6 +659,7 @@ iso8601 = []
 itsdangerous = []
 jedi = []
 jinja2 = []
+markdownify = []
 markupsafe = []
 multidict = []
 numpy = []
@@ -658,6 +679,7 @@ replit = []
 replit-python-lsp-server = []
 requests = []
 rope = []
+six = []
 soupsieve = []
 toml = []
 tomli = []
