@@ -199,6 +199,29 @@ def fetch_search(searchterm):
 	
 	return(json.dumps(final))
 
+def fetch_article(url):
+	response = requests.get(url)
+	
+	response.encoding = response.apparent_encoding
+	
+	soup = BeautifulSoup(response.text, "html.parser")
+	
+	article = (str(soup.find("div", {"itemprop": "articleBody"})))
+	
+	article_content_list = ((str(md(article))).splitlines())
+	revised_content_list = []
+	for item in article_content_list:
+		item = ((str(item)).strip())
+		if ("data:image" in item):
+			continue
+		else:
+			if ("READ MORE" in item):
+				continue
+			else:
+				revised_content_list.append(item.replace("‹ Slide me ›", ""))
+	
+	return('\n'.join(revised_content_list))
+
 class DailyMail:
 	'''Scrape data from the DailyMail and return in a JSON Format
 
@@ -210,10 +233,17 @@ class DailyMail:
  mail.homepage
  
  Search dailymail:
- mail.search("prompt here")'''
+ mail.search("prompt here")
+ 
+ Fetch specific article:
+ mail.article("article url here")'''
 
 	homepage = fetch_homepage()
 
 	def search(self, query):
-		'''Search dailymail, accepts strings.'''
+		'''Search dailymail with a prompt, results returned in a JSON format.'''
 		self.searchresult = fetch_search(query)
+
+	def article(self, article):
+		'''Fetch an article identified by a URL in reading form, returned in a MARKDOWN format.'''
+		self.article = fetch_article(article)
